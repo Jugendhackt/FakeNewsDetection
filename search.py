@@ -11,6 +11,11 @@ query = 'good'
 
 query = query+' news '+str(date)
 
+
+lst = []
+
 for j in search(query, lang = 'en', stop=10):
-    print(j)
+    lst.append(j)
+
+print(lst)
 
