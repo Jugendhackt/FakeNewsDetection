@@ -2,11 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import datetime
-import os
+import search
 
-urls = [
-    search_item_list
-]
+urls = search.search_('Brexit')
+
 
 searched_keyword = "Brexit"
 searched_keyword_string = "Suchanfrage:"
@@ -64,5 +63,4 @@ def run_crawler(urls, searched_keyword, searched_keyword_string):
     else: print('Kein Inhalt mehr... ')
 
 for url in urls:
-    for lol in url:
-        run_crawler(url, searched_keyword, searched_keyword_string)
+    run_crawler(url, searched_keyword, searched_keyword_string)
