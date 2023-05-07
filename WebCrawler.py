@@ -4,8 +4,9 @@ import json
 import datetime
 import search
 import os
+import use_detection
 
-query = 'Künstliche Intelligenz'
+query = 'machine learning'
 
 urls = search.search_(query)
 
@@ -104,7 +105,8 @@ def get_data(html, searcherd_term_key, searcherd_term_string):
             searcherd_term_key : searcherd_term_string,
             'timestamp': str(datetime.datetime.now()),
             'long_texts': long_texts,
-            'h_texts': h_texts
+            'h_texts': h_texts,
+            'Wahrscheinlichkeit': percentage
         }
     }
 
@@ -119,6 +121,8 @@ def get_data(html, searcherd_term_key, searcherd_term_string):
     combinded_data_list = long_texts + h_texts
     formatted_data_list = [[item] for item in combinded_data_list]
     print(formatted_data_list)
+    percentage = use_detection.predict(formatted_data_list)
+    
 
 
 def check_Availability(file_path_Element):

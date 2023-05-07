@@ -19,7 +19,7 @@ def predict(text):
     stop_words = stopwords.words('english')
     stop_words.extend(['from', 'subject', 're', 'edu', 'use'])
 
-    model = keras.models.load_model('./mein_model.h5')
+    model = keras.models.load_model('./fake-news-model/mein_model.h5')
     out = []
     with open('tokenizer.json', 'r', encoding='utf-8') as f:
         tokenizer_json = f.read()
